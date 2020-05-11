@@ -15,6 +15,11 @@ let bitBatBotOrNot = (n) => {
    if (n % 3 == 0){
      result = `${result}Bit`;
    }
+   if (n % 5 == 0){
+     result = `${result}Bat`;
+   }
+
+   return result;
 };
 
 let findAllbitBatBotOrNots1 = (arr) => {
