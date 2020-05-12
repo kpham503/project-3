@@ -1,53 +1,51 @@
-// esversion 6
+// jshint esversion: 6
 
-/fill an array with the numbers from start to stop, in steps of step
-let fillArray = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
-
-//create an array of the numbers 1 - 100
-let arrOf1To100 = fillArray(1, 100, 1);
-
-//log the array for inspection
-console.log(arrOf1To100);
-
-let bitBatBotOrNot = (n) => {
-   //your code goes here
-   let result = "";
-   if (n % 3 == 0){
-     result = `${result}Bit`;
-   }
-   if (n % 5 == 0){
-     result = `${result}Bat`;
-   }
-
-   return result;
+//Req 4-B
+let bitBatBotOrNot = n => {
+let outcome = "";
+  if (n % 3 == 0) {
+    outcome = `${outcome}Bit`;
+  } if (n % 5 == 0) {
+    outcome= `${outcome}Bat`;
+  } if (n % 7 == 0) {
+    outcome = `${outcome}Bot`;
+  } if ((n % 3 !== 0 && n % 5 !== 0 && n % 7 !== 0))  {
+    outcome = `${outcome}Not`;
+  } return outcome;
 };
 
-let findAllbitBatBotOrNots1 = (arr) => {
-   //your code goes here
-   //use map method
-}
+//Req 4-C
+let findAllbitBatBotOrNots1 = (array) => {
+const arr1 = array.map(bitBatBotOrNot);
+var arr2 = array.map(function (x, i) {
+  return `${x}: ${arr1[i]}`;
+});
+  return arr2;
+};
 
-let findAllbitBatBotOrNots2 = (arr) => {
-   //your code goes here
-   //use for statement
-}
+//Req 4-D
+let findAllbitBotOrNots2 = (array) => {
+let arr1 = [];
+for(var each in array) {
+  arr1.push(array[each]+": "+bitBatBotOrNot(array[each]));
+  }
+  return arr1;
+};
 
-let findAllbitBatBotOrNots3 = (arr) => {
-   //your code goes here
-   //use for..of statement
-}
+//Req 4-E
+let findAllbitBatBotOrNots3 = (array) => {
+let arr1 = [];
+for(var each of array) {
+  arr1.push(each+": "+bitBatBotOrNot(each));
+  }
+return arr1;
+};
 
-let findAllbitBatBotOrNots4 = (arr) => {
-   //your code goes here
-   //use forEach method
-}
-
-//test the functions
-
-findAllbitBatBotOrNots1(arrOf1To100)
-
-findAllbitBatBotOrNots2(arrOf1To100)
-
-findAllbitBatBotOrNots3(arrOf1To100)
-
-findAllbitBatBotOrNots4(arrOf1To100)
+//Req 4-F
+let findAllbitBatBotOrNots4 = (array) => {
+let arr1=[];
+    array.forEach((each) => {
+      arr1.push(each + ": " + bitBatBotOrNot(each));
+    });
+return arr1;
+};
